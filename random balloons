@@ -1,0 +1,46 @@
+Balloon bob;
+Balloon tim;
+Balloon jim;
+void setup()
+{
+  size(400, 400);
+  color c;
+  c = color(random(255), random(255), random(255));
+  bob = new Balloon (200, 200, c);
+  c = color(random(255), random(255), random(255));
+  tim = new Balloon (75, 350, c);
+  c = color(random(255), random(255), random(255));
+  jim = new Balloon (350, 75, c);
+}
+void draw()
+{
+  background(135, 206, 235);
+  bob.inflate(4);
+  bob.show();
+  tim.inflate(3);
+  tim.show();
+  jim.inflate(2); 
+  jim.show();
+}
+
+class Balloon
+{
+  int myX, myY, mySize;
+  color bColor;
+  Balloon(int x, int y, color c)
+  {
+    mySize = 0;
+    myX = x;
+    myY = y;
+    bColor=c;
+  }
+  void inflate(int s)
+  {
+    mySize=mySize+s;
+  }
+  void show()
+  {
+   fill(bColor);
+    ellipse(myX,myY,mySize,mySize);
+  }
+}
